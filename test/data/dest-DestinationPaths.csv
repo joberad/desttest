@@ -1,0 +1,3 @@
+ID;Scenario;Messagetype;Path;rDestinations_ID;Method
+b68d8c14-8e8b-4e5b-8ba2-4eb805e701c2;IoT;CreateContact;/v2/northwind/northwind.svc/Orders?%24format=json;7d7c5d22-f904-4f8d-8ed6-bf563db511f4;GET
+28e61f41-77f0-444c-b1c3-b2df9cae7bbb;WS;CreateContact;/testpath;7d7c5d22-f904-4f8d-8ed6-bf563db511f4;POST

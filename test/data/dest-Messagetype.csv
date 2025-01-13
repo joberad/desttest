@@ -1,0 +1,7 @@
+ID;Messagename;Messagetype
+f650cbe7-29c5-479c-a0b0-0383f2615622;CreateContact;ext
+130d6ea1-bb5d-4138-84e2-29f1491b5c9a;ActivateContact;ext
+10423c30-0ca9-4823-9f8d-10f5c18bbcf0;UpdateContact;ext
+03496d47-3c8c-4e69-9eb8-da6c7545bcbd;CreateCIAMUser;int
+89684a4b-ebfc-4894-b099-0352642529f3;CreateIoTUser;int
+8df31d61-11e8-49ad-93f9-8282eeb42a81;CreateSFContact;int

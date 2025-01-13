@@ -1,0 +1,63 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Dest",
+      "runtimeExecutable": "cds",
+      "killBehavior": "polite",
+      "request": "launch",
+      "args": [
+        "watch",
+        "--open"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "type": "pwa-node",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "PreLaunchTask for Run Dest",
+      "envFile": "${workspaceFolder}/env/.env1",
+      "env": {
+        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/Dest\\\",\\\"profileName\\\":\\\"\\\"}\"}"
+      }
+    },
+    {
+      "name": "apihub_sandbox",
+      "runtimeExecutable": "cds",
+      "request": "launch",
+      "killBehavior": "polite",
+      "args": [
+        "watch",
+        "--open"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "type": "pwa-node",
+      "cwd": "${workspaceFolder}/",
+      "preLaunchTask": "dev-project",
+      "envFile": "${workspaceFolder}/env/.env2",
+      "env": {
+        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/Dest/\\\",\\\"profileName\\\":\\\"\\\"}\"}"
+      }
+    },
+    {
+      "name": "Run livedata",
+      "runtimeExecutable": "cds",
+      "request": "launch",
+      "killBehavior": "polite",
+      "args": [
+        "watch",
+        "--open"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "type": "pwa-node",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "PreLaunchTask for Run livedata",
+      "envFile": "${workspaceFolder}/env/.env3",
+      "env": {
+        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/Dest\\\",\\\"profileName\\\":\\\"\\\"}\"}",
+        "runConfigurations": "{\"odataBinding\":{\"northwind\":{\"destination\":\"Northwind\",\"type\":\"Destination\",\"path\":\"/v2/northwind/northwind.svc\"},\"apihub_sandbox\":{\"destination\":\"apihub_sandbox\",\"type\":\"Destination\",\"path\":\"s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER\"}}}"
+      }
+    }
+  ]
+}

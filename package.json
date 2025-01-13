@@ -1,0 +1,92 @@
+{
+  "name": "Dest",
+  "version": "1.0.0",
+  "description": "Test von Destinationen",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap-cloud-sdk/http-client": "^3.25.0",
+    "@sap-cloud-sdk/util": "^3.25.0",
+    "@sap/cds": "^8",
+    "@sap/low-code-event-handler": "^1.2.5",
+    "@sap/xsenv": ">=3.3.2 <3.3.3",
+    "@sap/xssec": "^4.2.7",
+    "express": "^4",
+    "hdb": "^0.19.12",
+    "passport": "^0.7.0",
+    "@sap/mdk-tools": "^1.3.1"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.8.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "@sap/dev-cap-tools": "^1.31.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "start-local": "npm run generate-entry-point && npm run cds-watch",
+    "generate-entry-point": "dev-cap-tools gen-entrypoint",
+    "cds-watch": "cds watch --open",
+    "watch-dest.destinations": "cds watch --open dest.destinations/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "sql": {
+      "native_hana_associations": false
+    },
+    "requires": {
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+      "app-service": {
+        "impl": "@sap/low-code-event-handler"
+      },
+      "auth": {
+        "[development]": {
+          "kind": "dummy"
+        },
+        "[production]": {
+          "kind": "xsuaa"
+        }
+      },
+      "espnapi": {
+        "kind": "rest",
+        "model": "srv/external/espnapi",
+        "[production]": {
+          "credentials": {
+            "destination": "ESPN",
+            "path": "/9"
+          }
+        }
+      },
+      "northwind": {
+        "kind": "odata-v2",
+        "model": "srv/external/northwind",
+        "[production]": {
+          "credentials": {
+            "destination": "Northwind",
+            "path": "/v2/northwind/northwind.svc"
+          }
+        }
+      },
+      "apihub_sandbox": {
+        "kind": "odata-v2",
+        "model": "srv/external/apihub_sandbox",
+        "[production]": {
+          "credentials": {
+            "destination": "apihub_sandbox",
+            "path": "s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER"
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      }
+    }
+  },
+  "lcap": true,
+  "sapux": [
+    "app/dest.destinations"
+  ]
+}
