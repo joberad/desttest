@@ -1,0 +1,1 @@
+using DestCustService as service from '../../srv/service2';

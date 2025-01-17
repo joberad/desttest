@@ -1,10 +1,10 @@
 const axios = require('axios');
 const cds = require('@sap/cds');
 const { getDestination } = require('@sap-cloud-sdk/connectivity');
-
+const logger = cds.log('destlogger');
 class NFLService extends cds.ApplicationService {
   init(){
-    console.log("init");
+    logger.log("init");
      const  { NFLTeams } = this.entities;
      this.on('READ', NFLTeams, this.readTeamData);
      const  { Orders } = this.entities;
@@ -16,7 +16,7 @@ async fetchExternalData(apiUrl) {
     const response = await axios.get(apiUrl);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching data from ${apiUrl}:`, error.message);
+    logger.error(`Error fetching data from ${apiUrl}:`, error.message);
     throw error;
   }
 }
@@ -45,11 +45,11 @@ async checkDestination() {
     const destinationName = 'ESPN';
     const destination = await getDestination(destinationName);
     if (!destination) {
-        console.error(`Destination ${destinationName} not found`);
+        logger.error(`Destination ${destinationName} not found`);
         return;
     }
 
-    console.log('Destination Details:', destination);
+    logger.log('Destination Details:', destination);
 }
 }
 

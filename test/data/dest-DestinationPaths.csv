@@ -1,3 +1,7 @@
-ID;Scenario;Messagetype;Path;rDestinations_ID;Method
-b68d8c14-8e8b-4e5b-8ba2-4eb805e701c2;IoT;CreateContact;/v2/northwind/northwind.svc/Orders?%24format=json;7d7c5d22-f904-4f8d-8ed6-bf563db511f4;GET
-28e61f41-77f0-444c-b1c3-b2df9cae7bbb;WS;CreateContact;/testpath;7d7c5d22-f904-4f8d-8ed6-bf563db511f4;POST
+ID;Scenario;Messagename;Path;rDestinations_ID
+a21b2045-e2e4-432f-8e0c-2a59e61458c4;IoT;CreateContact;/v2/northwind/northwind.svc/Orders?%24format=json;7d7c5d22-f904-4f8d-8ed6-bf563db511f4
+19b19fd5-b1ff-47b9-9668-7c33756e12d9;WS;CreateContact;/testpath;7d7c5d22-f904-4f8d-8ed6-bf563db511f4
+3411a354-7d51-49a0-a776-7573d52a6b6b;NFL;GetTeams;/teams;5a8dd070-a7e1-42de-866b-e90cb33be9d9
+712f5b15-19db-4b80-b6bc-3979feac9cc0;Northwind;GetNorthwindOrders;/v2/northwind/northwind.svc/Orders?%24format=json;7d7c5d22-f904-4f8d-8ed6-bf563db511f4
+bc2c7c3b-0133-464c-96d6-af391203f171;ESPN;GetTeams;/teams;5a8dd070-a7e1-42de-866b-e90cb33be9d9
+c2d9b27c-b95a-4a65-9716-7e545619b48f;GetDataNorthwind;GetData;/v2/northwind/northwind.svc/Orders?%24format=json;7d7c5d22-f904-4f8d-8ed6-bf563db511f4

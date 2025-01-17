@@ -1,9 +1,10 @@
 _schema-version: 3.3.0
 ID: Dest
-version: 1.0.3
+version: 1.0.17
 description: "Test von Destinationen"
 parameters:
   enable-parallel-deployments: true
+  deploy_mode: html5-repo
 build-parameters:
   before-all:
     - builder: custom
@@ -28,6 +29,7 @@ modules:
       - name: Dest-destination
       - name: Dest-db
       - name: Dest-auth
+      - name: Dest-logging
 
   - name: Dest-db-deployer
     type: hdb
@@ -37,12 +39,140 @@ modules:
     requires:
       - name: Dest-db
 
+  - name: Dest-app-deployer
+    type: com.sap.application.content
+    path: gen
+    requires:
+      - name: Dest-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: app/
+      requires:
+        - name: Destdest.customizingsets
+          artifacts:
+            - dest.customizingsets.zip
+          target-path: app/
+        - name: Destdest.destcust
+          artifacts:
+            - dest.destcust.zip
+          target-path: app/
+        - name: Destdest.systems
+          artifacts:
+            - dest.systems.zip
+          target-path: app/
+  - name: Destdest.customizingsets
+    type: html5
+    path: app/dest.customizingsets
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms:
+        []
+  - name: Destdest.destcust
+    type: html5
+    path: app/dest.destcust
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms:
+        []
+  - name: Destdest.systems
+    type: html5
+    path: app/dest.systems
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms:
+        []
+
+  - name: Dest
+    type: approuter.nodejs
+    path: app/router
+   
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: Dest-auth
+      - name: Dest-logging
+      - name: Dest-destination
+      - name: Dest-html5-runtime
+ 
+  - name: Dest-destinations
+    type: com.sap.application.content
+    requires:
+      - name: Dest-auth
+        parameters:
+          service-key:
+            name: Dest-auth-key
+      - name: Dest-html5-repo-host
+        parameters:
+          service-key:
+            name: Dest-html5-repo-host-key
+      - name: srv-api
+      - name: Dest-destination
+        parameters:
+          content-target: true
+    build-parameters:
+      no-source: true
+    parameters:
+      content:
+        instance:
+          existing_destinations_policy: update
+          destinations:
+            - Name: Dest-html5-repository
+              ServiceInstanceName: Dest-html5-repo-host
+              ServiceKeyName: Dest-html5-repo-host-key
+              sap.cloud.service: Dest.service
+            - Name: Dest-auth
+              Authentication: OAuth2UserTokenExchange
+              ServiceInstanceName: Dest-auth
+              ServiceKeyName: Dest-auth-key
+              sap.cloud.service: Dest.service
+
 resources:
   - name: Dest-destination
     type: org.cloudfoundry.managed-service
     parameters:
       service: destination
       service-plan: lite
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            existing_destinations_policy: update
+            destinations:
+              - Name: Dest-srv-api
+                URL: ~{srv-api/srv-url}
+                Authentication: NoAuthentication
+                Type: HTTP
+                ProxyType: Internet
+                HTML5.ForwardAuthToken: true
+                HTML5.DynamicDestination: true
+              - Name: ui5
+                URL: https://ui5.sap.com
+                Authentication: NoAuthentication
+                Type: HTTP
+                ProxyType: Internet
+    requires:
+      - name: srv-api
   - name: Dest-db
     type: com.sap.xs.hdi-container
     parameters:
@@ -57,3 +187,18 @@ resources:
       config:
         xsappname: Dest-${org}-${space}
         tenant-mode: dedicated
+  - name: Dest-logging
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: application-logs
+      service-plan: lite
+  - name: Dest-html5-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: Dest-html5-runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime

@@ -18,8 +18,15 @@ entity Messagetype
 {
     key ID : UUID;
     Messagename : String(100);
-    Messagetype : String(30);
+    Method : String(10) enum
+    {
+        GET;
+        POST;
+    };
     rParameterSet : Association to one MessageParameterSet on rParameterSet.rMessagetype = $self;
+    rDestinationPaths : Association to one DestinationPaths;
+    rMessageScenario : Association to many MessageScenario on rMessageScenario.rMessagetype = $self;
+    Messagetype : String(20);
 }
 
 entity MessageParameter
@@ -28,6 +35,8 @@ entity MessageParameter
     ParameterName : String(100);
     ParameterValue : String(100);
     rParameterSet : Association to one MessageParameterSet;
+    Parametertype : String(20);
+    Mandatory : Boolean;
 }
 
 entity MessageParameterSet
@@ -51,9 +60,9 @@ entity MessageScenario
     key ID : UUID;
     Source : String(100);
     Message : String(100);
-    Target : String(100);
     Scenarioname : String(100);
     rTargets : Composition of many TargetSystems on rTargets.messageScenario = $self;
+    rMessagetype : Association to one Messagetype;
 }
 
 entity Systemroles
@@ -74,10 +83,10 @@ entity DestinationPaths
 {
     key ID : UUID;
     Scenario : String(100);
-    Messagetype : String(100);
+    Messagename : String(100);
     Path : String(100);
     rDestinations : Association to one Destinations;
-    Method : String(10);
+    rMessagetype : Association to one Messagetype on rMessagetype.rDestinationPaths = $self;
 }
 
 entity Destinations
@@ -87,3 +96,26 @@ entity Destinations
     rDPaths : Association to many DestinationPaths on rDPaths.rDestinations = $self;
     rSystems : Association to many System on rSystems.rDestinations = $self;
 }
+
+entity cSystems
+{
+    key ID : UUID;
+    Systemname : String(100);
+    rCustomizingSet : Association to one CustomizingSet;
+}
+
+entity cScenarios
+{
+    key ID : UUID;
+    ScenarioName : String(100);
+    rCustomizingset : Association to one CustomizingSet;
+}
+
+entity CustomizingSet
+{
+    key ID : UUID;
+    Customizingsetname : String(100);
+    rCSystems : Composition of many cSystems on rCSystems.rCustomizingSet = $self;
+    rCScenarios : Composition of many cScenarios on rCScenarios.rCustomizingset = $self;
+}
+

@@ -29,9 +29,18 @@
     "start-local": "npm run generate-entry-point && npm run cds-watch",
     "generate-entry-point": "dev-cap-tools gen-entrypoint",
     "cds-watch": "cds watch --open",
-    "watch-dest.destinations": "cds watch --open dest.destinations/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-dest.destcust": "cds watch --open dest.destcust/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-dest.systems": "cds watch --open dest.systems/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-dest.customizingsets": "cds watch --open dest.customizingsets/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-dest.myapplication": "cds watch --open dest.myapplication/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
+    "log": {
+      "levels": {
+        "sql": "error",
+        "cds": "info"
+      }
+    },
     "sql": {
       "native_hana_associations": false
     },
@@ -57,7 +66,7 @@
         "[production]": {
           "credentials": {
             "destination": "ESPN",
-            "path": "/9"
+            "path": "/teams"
           }
         }
       },
@@ -82,11 +91,18 @@
         },
         "csrf": true,
         "csrfInBatch": true
-      }
+      },
+      "application-logging": true,
+      "html5-repo": true,
+      "destinations": true,
+      "workzone": true
     }
   },
   "lcap": true,
   "sapux": [
-    "app/dest.destinations"
+    "app/dest.destcust",
+    "app/dest.systems",
+    "app/dest.customizingsets",
+    "app/dest.myapplication"
   ]
 }

@@ -1,2 +1,3 @@
 ID;Setname;rMessagetype_ID
-2c1db287-8356-44be-a001-444664931a11;ContactParams;f650cbe7-29c5-479c-a0b0-0383f2615622
+2c1db287-8356-44be-a001-444664931a11;CreateContactParams;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
+ca8c3dda-6e22-4c73-a054-67f932dcb155;NorthwindData;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2

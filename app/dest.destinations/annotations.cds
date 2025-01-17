@@ -1,1 +1,0 @@
-using Destdata as service from '../../srv/service1';
