@@ -1,1 +1,15 @@
-ID,ParameterName,ParameterValue,rParameterSet_ID
+ID;ParameterName;rParameterSet_ID;Parametertype;Mandatory
+da76fa6c-7c27-4efb-89f4-d23fbe880722;email;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;true
+f43a43c4-1cfd-442a-a75c-0f9ab46920ca;ciam_ID;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;true
+5ae246d7-3e83-46d7-9857-b1765d9062ea;role;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+75dec47e-9d8d-4f40-8675-1e2098b684ad;org_ID;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+062bff76-3a55-4963-abc9-0ecb0dfafcc0;bp_type;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+e0da5265-9af0-4279-bf2e-9230e4736d4e;release_CIAM;5b8fed6a-816b-4c84-979a-afd9ee2a5816;Boolean;false
+6dbcae72-1fba-46e2-8c79-50ae1602680d;function;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+b41f1995-3713-42c4-a6dd-117c54676f48;firstName;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+d9d93e74-0294-4429-aff9-8585c6e86b91;lastName;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+7481c670-92e9-410d-9cd1-72e5fbc2fd12;country;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+942bf284-b521-44f6-a51d-078fff2a6574;civility;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+b770cf83-2287-4124-ba3f-c4bdd3a25cc6;password;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+1f819033-5286-40cf-8e07-9336fede0957;sendWelcomeMail;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false
+29b9a371-0b36-41c9-aca5-e98702bf66e3;language;5b8fed6a-816b-4c84-979a-afd9ee2a5816;String;false

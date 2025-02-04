@@ -31,9 +31,22 @@ service Destdata
 
     action createContact
     (
-        scenario : String,
-        contactname : String
+        email       : String,
+        ciam_ID     : String,
+        role        : String,
+        org_ID      : String,
+        bptype      : String, 
+        release_CIAM :Boolean,
+        functiom    :String,
+        firstName   :String,
+        lastName    :String,
+        country     :String,
+        Civility    :String,
+        password    :String,
+        sendWelcomeMail :Boolean,
+        language    :String
     )
+
     returns String;
    
     action createContact2

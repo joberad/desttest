@@ -33,7 +33,6 @@ entity MessageParameter
 {
     key ID : UUID;
     ParameterName : String(100);
-    ParameterValue : String(100);
     rParameterSet : Association to one MessageParameterSet;
     Parametertype : String(20);
     Mandatory : Boolean;

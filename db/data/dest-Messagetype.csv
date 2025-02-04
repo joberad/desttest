@@ -1,1 +1,2 @@
-ID;Messagename;Messagetype;Method;rDestinationPaths_ID
+ID;Messagename;Method;rDestinationPaths_ID;Messagetype
+f0732955-95cd-49fe-b165-6cb2cc051aee;CreateContact2;POST;853da1f1-2132-4a00-81d0-c2ac94330080;ext

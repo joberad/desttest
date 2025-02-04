@@ -1,4 +1,3 @@
-ID;Source;Message;Scenarioname
-140a6b29-7403-4e86-9450-1dc12ec5be71;IotRegApp;CreateContact;IoT
-bffa9671-fcb2-46c0-b940-42de5a23e374;ShopApp;CreateConact;WS
-a4592b3e-81f7-4b9d-bd90-ab6ac2723aa8;NFLApp;getTeams;NFL
+ID;Source;Message;Scenarioname;rMessagetype_ID
+9ce58b1b-2f11-4c49-a16c-f8de8ad378ae;IotRegApp;CreateContact2;IoT;f0732955-95cd-49fe-b165-6cb2cc051aee
+ce03e558-eb08-4063-966b-7a2361f5a6ad;Dummy;Dummy;Dummy;

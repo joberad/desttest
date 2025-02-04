@@ -1,7 +1,7 @@
 const { query } = require("express");
 const connectivityService = require('@sap-cloud-sdk/connectivity');
 //const  getJwtToken       = require('./connect_util');
-const  {checkInputParams,readDatafromScenario,readParamsfromCust}  = require('./connect_util');
+const  {checkInputParams,readDatafromScenario,readParamsfromCust,processMessageGeneric, limitMessages} = require('./connect_util');
 const  {executeHttpRequest} = require('@sap-cloud-sdk/http-client');
 const logger = cds.log('destlogger');
 
@@ -28,7 +28,7 @@ module.exports = (srv) => {
   });
 
    srv.on ('GetNorthwindOrders', async (req)=>{
-      const incomingParams = ["scenario"];
+      const incomingParams = ["scenario"];P
       const inParams = await checkInputParams(req,incomingParams);
       let scenario = inParams.scenario;
       let response = await readDatafromScenario(req,scenario,inParams);
@@ -37,39 +37,22 @@ module.exports = (srv) => {
     );
     srv.on('createContact', async (req) => {
       logger.info("createContact entered");
-      // check incoming parameters
-      //const incomingParams = ["scenario","contactname"];
-      
-
-      let scenario = req.data['scenario'];//inParams.scenario; 
       const incomingParams = await readParamsfromCust(scenario);
-      const inParams = await checkInputParams(req,incomingParams);
+      const extractedVariables = {};
+      for(const inParam of incomingParams) {
+        if (inParam.parametername in req.data) {
+          extractedVariables[inParam.parametername] = req.data[inParam.parametername];
+        }
+      }
       logger.info("createContact Params ",inParams);
       // Business logic here
-      let response = await readDatafromScenario(req,scenario,inParams);
-
-      // call the target service
-      // for example IoT Create User, SF Create Contact	
-      // build URL from Destination
-      return response.data;//result;
+      let response = await readDatafromScenario(req,scenario,extractedVariables);
+      return response;//result;
     });
     
     srv.on('createContact2', async (req) => {
-      logger.info("createContact2 entered");
-      // check incoming parameters
-      //const incomingParams = ["scenario","contactname"];
-      
-
-      let scenario = req.data['scenario'];//inParams.scenario; 
-      const incomingParams = await readParamsfromCust(scenario);
-      const inParams = await checkInputParams(req,incomingParams);
-      logger.info("createContact2 Params ",inParams);
-      // Business logic here
-      let response = await readDatafromScenario(req,scenario,inParams);
-
-      // call the target service
-      // for example IoT Create User, SF Create Contact	
-      // build URL from Destination
+      limitMessages('IoT');
+      const response = processMessageGeneric("createContact2",req);
       return response.data;//result;
     });
     srv.on('getInfo', async (req) => {

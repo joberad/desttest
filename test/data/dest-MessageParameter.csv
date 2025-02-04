@@ -1,15 +1,1 @@
-ID;ParameterName;ParameterValue;rParameterSet_ID;Parametertype;Mandatory
-6d599667-42e6-4687-afbd-a2c6991f01ed;email;Meier@test.org;2c1db287-8356-44be-a001-444664931a11;Strng;true
-9e8438bc-89a1-43e1-8e26-5a83ecd8bae2;CIAM Application ID;4711;2c1db287-8356-44be-a001-444664931a11;String;true
-eeac8119-dbfd-4e42-88b2-a35c3f6df264;Role;IOT-User;2c1db287-8356-44be-a001-444664931a11;Role;false
-d0128b4a-25f5-43a1-929a-086ea1690bec;Organization ID;4711;2c1db287-8356-44be-a001-444664931a11;String;false
-2923532d-a9ad-437b-9902-ed61696288a1;BusinessPartnerType;BP;2c1db287-8356-44be-a001-444664931a11;String;false
-601e7166-503f-4852-8fa7-c2a44b9327c8;Release CIAM;TRUE;2c1db287-8356-44be-a001-444664931a11;String;false
-9c3a3a9c-0447-43a7-811f-df957676ebe9;Function;Abteilungsleiter;2c1db287-8356-44be-a001-444664931a11;String;false
-e780c984-5c46-4a42-a610-3482af8da13a;Firstname;Karl;2c1db287-8356-44be-a001-444664931a11;String;false
-8ffc31c9-cc70-4c7f-a6c8-fae35f29ce10;Lastname;Meier;2c1db287-8356-44be-a001-444664931a11;String;false
-2bef91b9-befb-498b-a28e-6dfc2dfaaada;Country;Germany;2c1db287-8356-44be-a001-444664931a11;String;false
-509f6ac9-5b02-484f-bc67-1ea76f4236c2;Civility;Herr;2c1db287-8356-44be-a001-444664931a11;String;false
-61feba76-0346-415d-9614-b07ffa2b9da5;password;tollertest;2c1db287-8356-44be-a001-444664931a11;String;false
-451e0c7a-eff0-4635-9703-966837fd8b9b;sendWelcomeMail;True;2c1db287-8356-44be-a001-444664931a11;Boolean;false
-384d735c-8c0b-452a-b21b-d6f14ca1bded;Language;de;2c1db287-8356-44be-a001-444664931a11;String;false
+ID;ParameterName;rParameterSet_ID;Parametertype;Mandatory

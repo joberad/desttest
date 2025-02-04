@@ -1,5 +1,6 @@
-namespace DestSF;
 
+@cds.external : true
+@cds.persistence.skip : true
 entity Contact
 {
     key ID : UUID;
@@ -7,7 +8,7 @@ entity Contact
     ciam_id : String(100);
     role : String(100);
     organization_id : String(100);
-    bptype : String(100);
+    bptpe : String(100);
     release_ciam : Boolean;
     function : String(100);
     firstname : String(100);

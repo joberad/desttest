@@ -1,6 +1,6 @@
 ID;Source;Message;Scenarioname;rMessagetype_ID
-ce1dc3b5-d17c-46f1-ae34-627755a9739c;IoTRegApp;CreateContact;IoT;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
-1761a826-7627-495d-9a36-66e0d7f498f6;Webshop;CreateContact;WS;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
-ce78bf61-f156-4270-bb95-03e3b62a0962;NFLApp;GetTeams;NFL;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
-7f1797da-5a4f-4a90-ac86-15bd1a6132ba;TestApp;GetNorthwindOrders;Northwind;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
-9e9030b3-420b-47eb-ae0b-02c9827e2fe6;TestApp;GetData;GetDataNorthwind;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
+ce1dc3b5-d17c-46f1-ae34-627755a9739c;IoTRegApp;CreateContact2;IoTTest;e1c93d42-cfd8-4c17-95b6-9f41e5b226c2
+1761a826-7627-495d-9a36-66e0d7f498f6;Webshop;CreateContact;WS;4eced3ac-0bb7-4898-8208-182ead345342
+ce78bf61-f156-4270-bb95-03e3b62a0962;NFLApp;GetTeams;NFL;4eced3ac-0bb7-4898-8208-182ead345342
+7f1797da-5a4f-4a90-ac86-15bd1a6132ba;TestApp;GetNorthwindOrders;Northwind;4eced3ac-0bb7-4898-8208-182ead345342
+9e9030b3-420b-47eb-ae0b-02c9827e2fe6;TestApp;GetData;GetDataNorthwind;4eced3ac-0bb7-4898-8208-182ead345342

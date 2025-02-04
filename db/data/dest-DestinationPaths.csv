@@ -1,4 +1,3 @@
 ID;Scenario;Messagename;Path;rDestinations_ID
-853da1f1-2132-4a00-81d0-c2ac94330080;IoT;CreateContact;/v2/northwind/northwind.svc/Orders?%24format=json;de2b380c-956a-4132-9e53-e850e6ef3f6b
+853da1f1-2132-4a00-81d0-c2ac94330080;IoT;CreateContact2;/Contacts/Contact;9ba7ae28-2aca-449d-95a8-f03110a4b44b
 cacf1f8b-647f-4969-8c0f-b84341a888df;WS;CreateContact;/tralla;de2b380c-956a-4132-9e53-e850e6ef3f6b
-73a8e6e6-cd19-4147-bccf-4d08ce93517a;NFL;getTeams;/teams;b10d85fa-2248-46eb-8539-1ac20a73d9aa

@@ -1,2 +1,3 @@
 ID;Messagename;Messagetype;Method;rDestinationPaths_ID
-e1c93d42-cfd8-4c17-95b6-9f41e5b226c2;CreateContact;ext;GET;a21b2045-e2e4-432f-8e0c-2a59e61458c4
+e1c93d42-cfd8-4c17-95b6-9f41e5b226c2;CreateContact2;ext;POST;a21b2045-e2e4-432f-8e0c-2a59e61458c4
+4eced3ac-0bb7-4898-8208-182ead345342;Dummy;Messagetype4991;POST;3411a354-7d51-49a0-a776-7573d52a6b6b

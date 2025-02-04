@@ -39,6 +39,21 @@
       }
     },
     {
+      "label": "PreLaunchTask for Run livedata",
+      "type": "process",
+      "command": "npx",
+      "args": [
+        "dev-cap-tools",
+        "gen-entrypoint"
+      ],
+      "dependsOn": [
+        "BuildMDK"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
       "label": "npm-install",
       "type": "process",
       "command": "npm",
@@ -49,7 +64,7 @@
         "checkPort4004"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -68,7 +83,7 @@
         "npm-install"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -83,11 +98,11 @@
         "BuildMDK"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
-      "label": "PreLaunchTask for Run livedata",
+      "label": "PreLaunchTask for Run Dest-4",
       "type": "process",
       "command": "npx",
       "args": [

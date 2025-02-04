@@ -1,6 +1,6 @@
 _schema-version: 3.3.0
 ID: Dest
-version: 1.0.17
+version: 1.0.20
 description: "Test von Destinationen"
 parameters:
   enable-parallel-deployments: true
