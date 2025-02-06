@@ -55,6 +55,13 @@ service Destdata
         inParams : String
     ) 
     returns String;
+
+     action createContact3
+    (
+        scenario : String,
+        inParams : String
+    ) 
+    returns String;
    
     action GetNorthwindOrders
     (

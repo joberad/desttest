@@ -6,7 +6,7 @@ const FormData = require('form-data');
 const { response } = require('express');
 const { log } = require('@sap/cds');
 const logger = cds.log('connect_util');
-const {map2json} = require ('./util');
+const {map2json, loadFunctions,loadFunction} = require ('./util');
 const rateLimit = require('express-rate-limit');
 const { format } = require('@sap/cds/lib/utils/cds-utils');
 
@@ -42,6 +42,19 @@ async function processMessageGeneric(messagetype,req) {
     // Business logic here
     let response = await readDatafromScenario(req,scenario,inParams);
     return response;
+}
+async function processMessageDynamic(messagetype,req) {
+  logger.info(" start of processing "+ messagetype);
+  let scenario = req.data['scenario'];//inParams.scenario; 
+  const incomingParams = await readParamsfromCust(scenario);
+  const inParams = await checkInputParams(req,incomingParams);
+  logger.info(messagetype+" Params ",inParams);
+  // Business logic here
+  //let response = await readDatafromScenario(req,scenario,inParams);
+  const filename = scenario + messagetype+".js";
+  const sendMessages = loadFunction("handler",filename);
+  const response = sendMessages(scenario,req,inParams);
+  return response;
 }
 // Build Message Request according to Customizing
 async function readDatafromScenario(req, scenario, inParams)
@@ -104,4 +117,4 @@ async function limitMessages(scenario){
     });
     cds.app.use(limiter);
 }
-module.exports = { processMessageGeneric, readParamsfromCust,readDatafromScenario,checkInputParams,limitMessages };
+module.exports = { processMessageDynamic,processMessageGeneric, readParamsfromCust,readDatafromScenario,checkInputParams,limitMessages };

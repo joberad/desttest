@@ -1,7 +1,7 @@
 const { query } = require("express");
 const connectivityService = require('@sap-cloud-sdk/connectivity');
 //const  getJwtToken       = require('./connect_util');
-const  {checkInputParams,readDatafromScenario,readParamsfromCust,processMessageGeneric, limitMessages} = require('./connect_util');
+const  {checkInputParams,readDatafromScenario,readParamsfromCust,processMessageGeneric, limitMessages, processMessageDynamic} = require('./connect_util');
 const  {executeHttpRequest} = require('@sap-cloud-sdk/http-client');
 const logger = cds.log('destlogger');
 
@@ -53,6 +53,11 @@ module.exports = (srv) => {
     srv.on('createContact2', async (req) => {
       limitMessages('IoT');
       const response = processMessageGeneric("createContact2",req);
+      return response.data;//result;
+    });
+    srv.on('createContact3', async (req) => {
+      limitMessages('IoT');
+      const response = processMessageDynamic("CreateContact",req);
       return response.data;//result;
     });
     srv.on('getInfo', async (req) => {
